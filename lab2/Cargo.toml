@@ -1,0 +1,9 @@
+[package]
+name = "lab2"
+version = "1.0.0"
+authors = ["Tonman Neverwalk Alone <tonmanna@gmail.com>"]
+workspace = ".."
+edition = "2018"
+
+[dependencies]
+

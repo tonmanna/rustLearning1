@@ -1,0 +1,10 @@
+[package]
+name = "lab1"
+version = "1.0.0"
+authors = ["Tonman Neverwalk Alone <tonmanna@gmail.com>"]
+workspace = ".."
+edition = "2018"
+
+[dependencies]
+lab2 = { path = "../lab2" }
+lab3 = { path = "../lab3" }
