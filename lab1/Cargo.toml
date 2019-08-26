@@ -6,5 +6,6 @@ workspace = ".."
 edition = "2018"
 
 [dependencies]
+rand = "0.7"
 lab2 = { path = "../lab2" }
 lab3 = { path = "../lab3" }
