@@ -8,7 +8,9 @@ edition = "2018"
 [dependencies]
 rand = "0.7"
 serde = "1.0.99"
-futures = "0.1"
+csv = "1.1"
 actix-web = "1.0.7"
 lab2 = { path = "../lab2" }
 lab3 = { path = "../lab3" }
+readcsv = { path = "../readcsv" }
+readfs = { path = "../readfs/" }

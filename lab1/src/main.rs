@@ -1,21 +1,25 @@
 use actix_web::{web, App, HttpResponse, HttpServer, Responder};
-// fn show_request(request: &actix_web::HttpRequest,) -> Box<Future<Item = HttpResponse, Error = Error>> {
-//     Box::new(request.body().map_err(|e| e.into()).map(move |f| {
-//         actix_web::HttpResponse::Ok()
-//             .content_type("text/plain")
-//             .body(f)
-//     }))
+use readcsv;
+use readfs;
+use std::process;
+
+// fn index(info: web::Path<(String, u32)>) -> impl Responder {
+//     format!("Hello {}! id:{}", info.0, info.1)
 // }
 
-// pub fn index(scope: actix_web::Scope<()>) -> actix_web::Scope<()> {
-//     scope.handler("", |req: &actix_web::HttpRequest| {
-//         show_request(req)
-//     })
-// }
-
-fn index(info: web::Path<(String, u32)>) -> impl Responder {
-    format!("Hello {}! id:{}", info.0, info.1)
+//Month,Display URL domain,Impression share,Avg. position,Overlap rate,Position above rate,Top of page rate,Abs. Top of page rate,Outranking share
+struct CSVData {
+    month: f32,
+    display: f32,
+    impression: f32,
+    avgpos: f32,
+    overlap: f32,
+    position: f32,
+    top: f32,
+    top2: f32,
+    outrank: f32,
 }
+
 fn index2() -> impl Responder {
     let data = r#"
         {
@@ -32,6 +36,22 @@ fn index2() -> impl Responder {
 }
 
 fn main() -> std::io::Result<()> {
+    match readfs::ReadFS("2.csv") {
+        Ok(value) => {
+            println!("CSV TEXT: {}", value);
+            match readcsv::readCSV(value) {
+                Ok(_) => println!("GOOD"),
+                Err(e) => {
+                    println!("CSV: {}", e);
+                    //process::exit(1);
+                }
+            };
+        }
+        Err(e) => {
+            println!("FILE OPEN: {}", e);
+        }
+    }
+
     HttpServer::new(|| App::new().service(web::resource("/").to(index2)))
         .bind("0.0.0.0:88")?
         .run()
