@@ -1,5 +1,5 @@
 [package]
-name = "lab1"
+name = "lab4"
 version = "1.0.0"
 authors = ["Tonman Neverwalk Alone <tonmanna@gmail.com>"]
 workspace = ".."
@@ -7,8 +7,5 @@ edition = "2018"
 
 [dependencies]
 rand = "0.7"
-serde = "1.0.99"
-futures = "0.1"
-actix-web = "1.0.7"
 lab2 = { path = "../lab2" }
 lab3 = { path = "../lab3" }

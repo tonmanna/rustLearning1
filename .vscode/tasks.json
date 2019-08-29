@@ -18,9 +18,6 @@
             "label": "cargobuild",
             "type": "cargo",
             "subcommand": "build",
-            "problemMatcher": [
-                "$rustc"
-            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
