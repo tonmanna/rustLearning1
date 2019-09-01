@@ -6,6 +6,11 @@ workspace = ".."
 edition = "2018"
 
 [dependencies]
+rand = "0.7"
+serde = "1.0.99"
+csv = "1.1"
 actix-web = "1.0.7"
-jsonwebtoken = "6.0.1"
-serde_derive = "1.0.99"
+lab2 = { path = "../lab2" }
+lab3 = { path = "../lab3" }
+readcsv = { path = "../readcsv" }
+readfs = { path = "../readfs/" }
